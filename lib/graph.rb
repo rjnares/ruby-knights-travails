@@ -14,13 +14,18 @@ class Graph
     nodes << Node.new(value)
   end
 
-  def add_edge(value1, value2)
-    index1 = nodes.index(value1)
-    index2 = nodes.index(value2)
+  def add_edges(node, values)
+    values.each { |v| node.add_edge(find(v)) }
+  end
 
-    return if index1.nil? || index2.nil?
+  def print
+    nodes.each { |n| puts n }
+  end
 
-    nodes[index1].add_edge(nodes[index2])
-    nodes[index2].add_edge(nodes[index1])
+  private
+
+  def find(value)
+    nodes.each { |n| return n if n.value == value }
+    nil
   end
 end
