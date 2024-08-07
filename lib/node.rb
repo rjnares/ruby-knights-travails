@@ -2,7 +2,7 @@
 
 # Class for a graph node
 class Node
-  attr_reader :value
+  attr_reader :value, :neighbors
 
   def initialize(value)
     @value = value
@@ -16,8 +16,4 @@ class Node
   def to_s
     "#{value} => #{neighbors.map { |n| n.value.to_s }.join(', ')}"
   end
-
-  private
-
-  attr_reader :neighbors
 end

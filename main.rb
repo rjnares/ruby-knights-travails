@@ -42,10 +42,15 @@ def build_graph
   graph
 end
 
-graph = build_graph
-
-graph.print
-
 def knight_moves(from, to)
-  # TODO
+  graph = build_graph
+  path = graph.shortest_path(from, to)
+  puts "You made it in #{path.length} moves! Here's your path:"
+  path.each { |value| p value }
 end
+
+knight_moves([0, 0], [1, 2])
+knight_moves([0, 0], [3, 3])
+knight_moves([3, 3], [0, 0])
+knight_moves([0, 0], [7, 7])
+knight_moves([3, 3], [4, 3])
